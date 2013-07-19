@@ -5,10 +5,10 @@ block content
   form(method='post')
     label
       div Title
-      input(type='text', name='title')
+      input(type='text', name='title', value=title)
     label
       div Art
-      textarea(name='art')
+      textarea(name='art') #{art}
     - if (error)
       div(class='error') #{error}
     input(type='submit')

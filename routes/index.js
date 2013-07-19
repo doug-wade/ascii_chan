@@ -1,5 +1,11 @@
+dataAccess = require('../db/dataAccess');
+
 exports.index = function(req, res){
-  res.render('index', {page_title:'ascii'});
+  dataAccess.getArt().
+  then(function(data){
+    res.render('index', {page_title:'ascii', art:data});
+  });
+  return;
 }
 
 exports.post = function(req, res){
@@ -17,7 +23,10 @@ exports.post = function(req, res){
     error = 'Please provide some ascii art.';
     res.render('index', {page_title: 'ascii', error: error, title: title, art: art});
   }
-  res.render('thanks', {page_title: 'ascii'});
+  dataAccess.createArt(title, art).
+  then(function(data){
+    res.render('thanks', {page_title: 'ascii', post_id:data[0]})
+  });
   return;
 }
 

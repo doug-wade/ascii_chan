@@ -12,3 +12,9 @@ block content
     - if (error)
       div(class='error') #{error}
     input(type='submit')
+
+  div.container
+    - for (var s in submissions)
+      div.submission
+        p= submissions[s].title
+        p= submissions[s].art

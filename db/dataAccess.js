@@ -36,7 +36,16 @@ exports.getArt = function(){
 
       done();
 
-      deferred.resolve(result);
+      var ascii_art = [];
+      result.rows.forEach(function(art, i){
+        ascii_art.push({
+          id: art.post_id,
+          title: art.post_title,
+          art: art.post_text
+        });
+      });
+      
+      deferred.resolve(ascii_art);
     });
   });
 

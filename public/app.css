@@ -1,0 +1,64 @@
+body {
+  font-family: sans-serif;
+  width: 800px;
+  margin: 0 auto;
+  padding 10px;
+  background-color: #fed8b2;
+  background-image: linear-gradient(bottom, rgb(255,255,255) 38%, rgb(254,216,178) 74%);
+  background-image: -o-linear-gradient(bottom, rgb(255,255,255) 38%, rgb(254,216,178) 74%);
+  background-image: -moz-linear-gradient(bottom, rgb(255,255,255) 38%, rgb(254,216,178) 74%);
+  background-image: -webkit-linear-gradient(bottom, rgb(255,255,255) 38%, rgb(254,216,178) 74%);
+  background-image: -ms-linear-gradient(bottom, rgb(255,255,255) 38%, rgb(254,216,178) 74%);
+
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.48, rgb(255,255,255)),
+    color-stop(0.74, rgb(254,216,178))
+  );
+}
+
+.error {
+  color: red;
+}
+
+label {
+  display: block;
+  font-size: 20px;
+}
+
+input[type=text] {
+  width: 400px;
+  font-size: 26px;
+  padding: 2px;
+}
+
+textarea {
+  width: 400px;
+  height: 200px;
+  font-size: 17px;
+  font-family: monospace;
+}
+
+input[type=submit] {
+  font-size: 24px;
+}
+
+hr {
+  margin: 20px auto;
+}
+
+.art + .art {
+  margin-top: 20px;
+}
+
+.art-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.art-body {
+  margin: 0;
+  font-size: 17px;
+}

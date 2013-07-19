@@ -13,8 +13,10 @@ block content
       div(class='error') #{error}
     input(type='submit')
 
+  hr
+
   div.container
     - for (var s in submissions)
-      div.submission
-        p= submissions[s].title
-        p= submissions[s].art
+      div.art
+        div.art-title= submissions[s].title
+        pre.art-body= submissions[s].art

@@ -1,3 +1,21 @@
 exports.index = function(req, res){
-  res.render('index', {title:'ascii_chan'});
+  res.render('index', {page_title:'ascii'});
+}
+
+exports.post = function(req, res){
+  var error;
+  var title = req.body.title;
+  var art = req.body.art;
+  console.log(req.body);
+  if (!title){
+    if (!art){
+      error = 'Please provide a title and some art.'
+    } else {
+      error = 'Please provide a title.';
+    }
+  } else if (!art){
+    error = 'Please provide some ascii art.';
+  }
+  res.render('index', {title: 'ascii', error: error});
+  return;
 }

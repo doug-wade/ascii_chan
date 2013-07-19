@@ -1,4 +1,14 @@
 extends layout
 
 block content
-  h1 /ascii chan/
+  h1 /ascii/
+  form(method='post')
+    label
+      div Title
+      input(type='text', name='title')
+    label
+      div Art
+      textarea(name='art')
+    - if (error)
+      div(class='error') #{error}
+    input(type='submit')

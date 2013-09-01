@@ -10,12 +10,12 @@ var handleError = function(err, deferred, done) {
   return true;
 };
 
-exports.createArt = function(title, art){
+exports.createArt = function(title, art, latitude, longitude){
   var deferred = Q.defer();
 
   pg.connect(dbUrl, function(err, client, done){
-    client.query('insert into ascii_art (post_title, post_text) '
-        + ' values ($1, $2) returning post_id;', [title, art], function(err, result){
+    client.query('insert into ascii_art (post_title, post_text, latitude, longitude) '
+        + ' values ($1, $2, $3, $4) returning post_id;', [title, art, latitude, longitude], function(err, result){
       handleError(err, deferred, done);
 
       done();
@@ -41,7 +41,8 @@ exports.getArt = function(){
         ascii_art.push({
           id: art.post_id,
           title: art.post_title,
-          art: art.post_text
+          art: art.post_text,
+          location: art.post_location
         });
       });
       

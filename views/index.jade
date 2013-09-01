@@ -11,6 +11,7 @@ block content
       textarea(name='art') #{art}
     - if (error)
       div(class='error') #{error}
+    input(type='text', name='geoPosition', class='geoPosition', hidden='hidden')
     input(type='submit')
 
   hr

@@ -1,21 +1,32 @@
 dataAccess = require('../db/dataAccess');
 
 exports.index = function(req, res){
+  var art;
+
   dataAccess.getArt().
   then(function(data){
-    res.render('index', {page_title:'ascii', submissions:data});
+    maps_url = 'http://maps.googleapis.com/maps/api/staticmap?sensor=false&size=568x300';
+
+    for (var i = 0; i < data.length; i++){
+      art = data[i];
+      console.log(art);
+      if (art.lat && art.lon){
+        maps_url += '&markers=' + art.lat + ',' + art.lon;
+      }
+    }
+
+    res.render('index', {page_title:'ascii', submissions:data, map_url:maps_url});
   });
   return;
 }
 
 exports.post = function(req, res){
-  var error;
-  var title = req.body.title;
-  var art = req.body.art;
-  var location = req.body.geoPosition;
-  console.log(req.body);
-  locs = location.split('|');
-  var lat = locs[0],
+  var error,
+      title = req.body.title,
+      art = req.body.art,
+      location = req.body.geoPosition,
+      locs = location.split('|'),
+      lat = locs[0],
       lon = locs[1];
 
   if (!title){

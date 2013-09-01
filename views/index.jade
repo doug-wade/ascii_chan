@@ -2,21 +2,25 @@ extends layout
 
 block content
   h1 /ascii/
-  form(method='post')
-    label
-      div Title
-      input(type='text', name='title', value=title)
-    label
-      div Art
-      textarea(name='art') #{art}
-    - if (error)
-      div(class='error') #{error}
-    input(type='text', name='geoPosition', class='geoPosition', hidden='hidden')
-    input(type='submit')
+  div.submissions
+    form(method='post', class='form')
+      label
+        div Title
+        input(type='text', name='title', value=title)
+      label
+        div Art
+        textarea(name='art') #{art}
+      - if (error)
+        div(class='error') #{error}
+      input(type='text', name='geoPosition', class='geoPosition', hidden='hidden')
+      input(type='submit')
+
+    div(class='map')
+      img(src=map_url, class='map-img')
 
   hr
 
-  div.container
+  div.posts
     - for (var s in submissions)
       div.art
         div.art-title= submissions[s].title

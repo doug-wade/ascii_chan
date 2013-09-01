@@ -1,8 +1,7 @@
 body {
   font-family: sans-serif;
-  width: 800px;
   margin: 0 auto;
-  padding 10px;
+  padding: 10px;
   background-color: #fed8b2;
   background-image: linear-gradient(bottom, rgb(255,255,255) 38%, rgb(254,216,178) 74%);
   background-image: -o-linear-gradient(bottom, rgb(255,255,255) 38%, rgb(254,216,178) 74%);
@@ -19,8 +18,27 @@ body {
   );
 }
 
+.form {
+  float: left;
+  width: 40%;
+}
+
+.map {
+  float: right;
+  width: 60%;
+  height: 342px;
+}
+
+.container {
+  padding: 0px 5% 0px 5%;
+}
+
 .error {
   color: red;
+}
+
+.posts {
+  float: center;
 }
 
 label {

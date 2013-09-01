@@ -42,7 +42,8 @@ exports.getArt = function(){
           id: art.post_id,
           title: art.post_title,
           art: art.post_text,
-          location: art.post_location
+          lat: art.latitude,
+          lon: art.longitude
         });
       });
       
